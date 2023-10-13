@@ -1,3 +1,3 @@
 # Oyun Programlama Dersi
 
-# Platformer oyunu proje dosyaları eklendi.. Güncellemeler devam ediyor.
+* Platformer oyunu proje dosyaları eklendi.. Güncellemeler devam ediyor.
