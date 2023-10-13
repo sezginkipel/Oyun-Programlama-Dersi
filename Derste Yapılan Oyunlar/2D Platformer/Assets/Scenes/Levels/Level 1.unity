@@ -418,6 +418,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaf690a859a9abc4b964d56198364b17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  walkSpeed: 750
+  jumpForce: 1500
 --- !u!1 &340643170
 GameObject:
   m_ObjectHideFlags: 0
@@ -769,8 +771,8 @@ GameObject:
   - component: {fileID: 1722834701}
   - component: {fileID: 1722834700}
   m_Layer: 0
-  m_Name: Obstacle_Default
-  m_TagString: Untagged
+  m_Name: Platform_Default
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -995,7 +997,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 659993812}
+  - {fileID: 340643173}
+  - {fileID: 1849568731}
   - {fileID: 154975365}
   - {fileID: 1722834702}
-  - {fileID: 1849568731}
-  - {fileID: 340643173}
