@@ -20,11 +20,11 @@ public class PlayerController : MonoBehaviour
     // A boolean to check if the player is facing right. We will use this to flip the player sprite.
     private bool isFacingRight = true;
     
-    // TMP_Text component attached to the player. We will use this to display the score.
-    public TMP_Text scoreText;
+    // TMP_Text component attached to the player. We will use this to display the coin count.
+    public TMP_Text coinText;
     
-    // The score of the player. This is a serialized field so that we can change it in the inspector.
-    [SerializeField] private int score = 0;
+    // The coin of the player. This is a serialized field so that we can change it in the inspector.
+    [SerializeField] private int coins = 0;
     
     // TMP_Text component attached to the player. We will use this to display the keys.
     public TMP_Text keyText;
@@ -44,13 +44,13 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Walk(1);
+        Walk(0);
         Jump();
         
     }
     
     // Player Walk function that takes in a float parameter for the direction the player is walking in.
-    public void Walk(float direction)
+    private void Walk(float direction)
     {
         // If the player is facing right and the direction is less than 0, or the player is facing left and the direction is greater than 0, then flip the player sprite.
         if ((isFacingRight && direction < 0) || (!isFacingRight && direction > 0))
@@ -58,60 +58,54 @@ public class PlayerController : MonoBehaviour
             Flip();
         }
 
-        // Set the velocity of the player to the direction multiplied by the walk speed.
-        playerRigidbody.velocity = new Vector2(direction * walkSpeed * Time.deltaTime, playerRigidbody.velocity.y);
-    }
-    
-    // Flip function that flips the player sprite.
-    private void Flip()
-    {
-        // Set the isFacingRight boolean to the opposite of what it was.
-        isFacingRight = !isFacingRight;
-
-        // Get the local scale of the player. This is a Vector3 that contains the x, y, and z scale of the player.
-        Vector3 playerScale = transform.localScale;
-
-        // Set the x scale of the player to the opposite of what it was.
-        playerScale.x *= -1;
-
-        // Set the local scale of the player to the new player scale.
-        transform.localScale = playerScale;
-    }
-    
-    // Player Jump function that makes the player jump.
-    public void Jump()
-    {
-        // If the player is on the ground, then add a force to the player in the up direction.
-        if (isGrounded)
+        if(Input.GetKey(KeyCode.LeftArrow))
         {
-            playerRigidbody.AddForce(Vector2.up * (jumpForce * Time.deltaTime), ForceMode2D.Impulse);
+            playerRigidbody.AddForce(Vector2.left * (walkSpeed * Time.deltaTime), ForceMode2D.Force);
+            direction = -1;
+
+        }
+        else if(Input.GetKey(KeyCode.RightArrow))
+        {
+            playerRigidbody.AddForce(Vector2.right * (walkSpeed * Time.deltaTime), ForceMode2D.Force);
+            direction = 1;
+        }
+        else
+        {
+            direction = 0;
         }
     }
     
-    // OnCollisionEnter2D is called when the player collides with another collider.
+    private void Flip()
+    {
+        isFacingRight = !isFacingRight;
+        Vector3 playerScale = transform.localScale;
+        playerScale.x *= -1;
+        transform.localScale = playerScale;
+    }
+
+    private void Jump()
+    {
+        if (isGrounded && Input.GetKeyDown(KeyCode.Space))
+        {
+            Vector2 jump = new Vector2(0, jumpForce);
+            playerRigidbody.AddForce(new Vector2(0f, 0f));
+            playerRigidbody.AddForce(jump, ForceMode2D.Force);
+            isGrounded = false;
+        }
+    }
+
     private void OnCollisionEnter2D(Collision2D other)
     {
-        // If the player collides with the ground, then set the isGrounded boolean to true.
         if (other.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
         }
     }
     
-    // OnCollisionExit2D is called when the player stops colliding with another collider.
-    private void OnCollisionExit2D(Collision2D other)
-    {
-        // If the player stops colliding with the ground, then set the isGrounded boolean to false.
-        if (other.gameObject.CompareTag("Ground"))
-        {
-            isGrounded = false;
-        }
-    }
-    
-    // OnTriggerEnter2D is called when the player enters a trigger collider.
+
+
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // If the player enters a trigger collider with the tag "Coin", then destroy the coin.
         if (other.gameObject.CompareTag("Coin"))
         {
             Destroy(other.gameObject);
