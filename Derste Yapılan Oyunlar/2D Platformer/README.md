@@ -12,6 +12,7 @@
 
 
 ### Yapılacaklar
-[ ] Storyboard.
-[ ] Kanban.
-[ ] Flip fonksiyonu güncellemesi.
+- [ ] Storyboard.
+- [ ] Kanban.
+- [ ] Flip fonksiyonu güncellemesi. 
+
