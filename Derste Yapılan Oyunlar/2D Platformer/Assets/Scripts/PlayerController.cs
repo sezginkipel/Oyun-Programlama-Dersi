@@ -44,44 +44,53 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Walk(0);
+        Walk();
         Jump();
-        
     }
     
     // Player Walk function that takes in a float parameter for the direction the player is walking in.
-    private void Walk(float direction)
+    private void Walk()
     {
-        // If the player is facing right and the direction is less than 0, or the player is facing left and the direction is greater than 0, then flip the player sprite.
-        if ((isFacingRight && direction < 0) || (!isFacingRight && direction > 0))
+        // Get the horizontal input from the player. This will be a value between -1 and 1.
+        float horizontalInput = Input.GetAxis("Horizontal");
+        
+        // Create a new Vector2 with the horizontal input and 0 for the y component.
+        Vector2 walk = new Vector2(horizontalInput, 0);
+        
+        // Apply the walk force to the player.
+        playerRigidbody.AddForce(walk * (walkSpeed * Time.deltaTime));
+        
+        // If the player is walking right and is not facing right, flip the player sprite.
+        if (horizontalInput > 0 && !isFacingRight)
         {
             Flip();
         }
-
-        if(Input.GetKey(KeyCode.LeftArrow))
+        // If the player is walking left and is facing right, flip the player sprite.
+        else if (horizontalInput < 0 && isFacingRight)
         {
-            playerRigidbody.AddForce(Vector2.left * (walkSpeed * Time.deltaTime), ForceMode2D.Force);
-            direction = -1;
-
-        }
-        else if(Input.GetKey(KeyCode.RightArrow))
-        {
-            playerRigidbody.AddForce(Vector2.right * (walkSpeed * Time.deltaTime), ForceMode2D.Force);
-            direction = 1;
-        }
-        else
-        {
-            direction = 0;
+            Flip();
         }
     }
     
+    // Player Flip function that flips the player sprite.
     private void Flip()
     {
+        // Flip the boolean for isFacingRight.
         isFacingRight = !isFacingRight;
-        Vector3 playerScale = transform.localScale;
-        playerScale.x *= -1;
-        transform.localScale = playerScale;
+        
+        // Get the local scale of the player.
+        Vector3 localScale = transform.localScale;
+        
+        // Flip the x component of the local scale.
+        localScale.x *= -1;
+        
+        // Set the local scale of the player to the new local scale.
+        transform.localScale = localScale;
     }
+    
+    
+    
+
 
     private void Jump()
     {
