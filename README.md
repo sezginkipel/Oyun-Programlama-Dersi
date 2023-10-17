@@ -9,5 +9,8 @@
 > [!WARNING] 
 > README dosyası güncelleniyor.
 
+> [!NOTE] 
+> Platformer2D projesi 18.10.2023 tarihinde güncellendi, detaylar için ilgili projenin ReadMe dosyasını inceleyebilirsiniz.
+
 
 
