@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
     public TMP_Text keyText;
     
     // The number of keys the player has. This is a serialized field so that we can change it in the inspector.
-    [SerializeField] private int keys = 0;
+    [SerializeField] private int collectedKeys = 0;
     
 
 
@@ -115,8 +115,19 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Coin"))
+        if (other.gameObject.CompareTag("Coin_Default"))
         {
+            print("Coin collected!");
+            coins += 10;
+            coinText.text = "Coins: " + coins;
+            Destroy(other.gameObject);
+        }
+        
+        if(other.gameObject.CompareTag("Key_Default"))
+        {
+            print("Key collected!");
+            collectedKeys++;
+            keyText.text = "Keys: " + collectedKeys;
             Destroy(other.gameObject);
         }
     }
