@@ -1,4 +1,5 @@
 # Oyun Programlama Dersi - Derste Yapılan Oyunlar
 
 
-*** Platformer2D
+> [!INFO]
+> Platformer2D proje dosyaları eklendi, proje devam ediyor.
