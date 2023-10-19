@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D playerRigidbody;
 
     // The speed at which the player will walk. This is a serialized field so that we can change it in the inspector.
-    [SerializeField] private float walkSpeed = 1337f;
+    [SerializeField] private float walkSpeed = 420f;
 
     // The force at which the player will jump. 
     [SerializeField] private float jumpForce = 1500f;
