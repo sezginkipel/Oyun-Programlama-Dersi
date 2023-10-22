@@ -1,0 +1,12 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/USS/Components.uss?fileID=7433441132597879392&amp;guid=86901c412a0b67f4289234f2514d128a&amp;type=3#Components" />
+    <ui:VisualElement style="flex-grow: 1; background-color: rgba(255, 0, 0, 0); background-image: none; -unity-background-scale-mode: stretch-to-fill; width: auto; height: auto; padding-top: 16px; padding-right: 16px; padding-bottom: 16px; padding-left: 16px; -unity-slice-left: 0; -unity-slice-top: 0; -unity-slice-right: 0; -unity-slice-bottom: 0; -unity-background-image-tint-color: rgb(255, 255, 255);">
+        <ui:Label tabindex="-1" text="3D Hyper Casual&#10;" parse-escape-sequences="true" display-tooltip-when-elided="true" name="text_title" style="-unity-font-style: bold; font-size: 36px; -unity-text-align: upper-center; height: 50px;" />
+        <ui:VisualElement name="panel_btnGroup" style="flex-grow: 1; margin-top: 80px; margin-right: 80px; margin-bottom: 80px; margin-left: 80px; background-color: rgba(255, 255, 255, 0); background-image: none; -unity-slice-left: 254; -unity-slice-top: 254; -unity-slice-right: 254; -unity-slice-bottom: 254;">
+            <ui:Button text="Play" parse-escape-sequences="true" display-tooltip-when-elided="true" name="btn_play" class="btn" style="background-color: rgb(255, 255, 255); border-top-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; border-bottom-left-radius: 0;" />
+            <ui:Button text="Store" parse-escape-sequences="true" display-tooltip-when-elided="true" name="btn_store" class="btn" style="background-color: rgb(255, 255, 255);" />
+            <ui:Button text="Settings" parse-escape-sequences="true" display-tooltip-when-elided="true" name="btn_settings" class="btn" style="background-color: rgb(255, 255, 255);" />
+            <ui:Button text="Quit Game" parse-escape-sequences="true" display-tooltip-when-elided="true" name="btn_quit" class="btn" style="background-color: rgb(255, 255, 255);" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
