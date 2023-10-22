@@ -2,8 +2,6 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
 #
-.idea
-
 /[Ll]ibrary/
 /[Tt]emp/
 /[Oo]bj/
@@ -11,6 +9,9 @@
 /[Bb]uilds/
 /[Ll]ogs/
 /[Uu]ser[Ss]ettings/
+
+.DS_Store
+.idea
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
