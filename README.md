@@ -1,16 +1,10 @@
 # Oyun Programlama Dersi
-> [!IMPORTANT] 
-> Platformer2D projesinde yaşadığınız herhangi bir sorun olursa Issues ya da Discussion bölümünde paylaşınız. 3D oyun projesinin örneği eklenecektir.
 
+> [!WARNING]
+> 3D oyunların ilk projesi olan "3D Hyper Casual" eklenmiştir, ancak henüz kullanıma hazır değildir. Projeyi henüz indirmeyin ya da forklamayın, yakında kullanıma hazır olacaktır. Kullanıma hazır olduğunda bu uyarı kaldırılacaktır.
 
-> [!IMPORTANT] 
-> Repo güncellenmektedir, proje dosyaları, kaynaklar, araçlar vb. eklenecektir.
-
-> [!NOTE] 
+> [!NOTE]
 > Herhangi bir problem yaşamanız durumunda, Issues bölümünden bir issue oluşturabilirsiniz.
 
-> [!NOTE] 
-> Platformer2D projesi 19.10.2023 tarihinde güncellendi, detaylar için ilgili projenin ReadMe dosyasını inceleyebilirsiniz.
-
-
-
+## İçerikler
+* [Platformer2D](#platformer2d)
