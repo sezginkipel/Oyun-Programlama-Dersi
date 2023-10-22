@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro; // Namespace for TextMeshPro
+using UnityEngine.SceneManagement;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -32,8 +33,7 @@ public class PlayerController : MonoBehaviour
     // The number of keys the player has. This is a serialized field so that we can change it in the inspector.
     [SerializeField] private int collectedKeys = 0;
     
-
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -129,6 +129,19 @@ public class PlayerController : MonoBehaviour
             collectedKeys++;
             keyText.text = "Keys: " + collectedKeys;
             Destroy(other.gameObject);
+        }
+
+        if (other.gameObject.CompareTag("Finish"))
+        {
+            if (collectedKeys > 0)
+            {
+                print("Kapıya ulaştın ve anahtarın yeterli GEÇEBİLİRSİN!");
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
+            else
+            {
+                print("Kapıya ulaştın ancak anahtarın yeterli değil!");
+            }
         }
     }
 }
