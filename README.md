@@ -1,8 +1,12 @@
 # Oyun Programlama Dersi
 
 > [!NOTE]
+> Kaynaklar güncellenmiştir, faydalı Youtube kanalları eklendi.
+> [Kaynaklara Git](https://github.com/sezginkipel/Oyun-Programlama-Dersi/tree/main/Kaynaklar)
+
+> [!NOTE]
 > Herhangi bir problem yaşamanız durumunda, Issues bölümünden bir issue oluşturabilirsiniz.
->
+
 
 * [Sorun Bildir](https://github.com/sezginkipel/Oyun-Programlama-Dersi/issues)
 * [Discussions](https://github.com/sezginkipel/Oyun-Programlama-Dersi/discussions)
