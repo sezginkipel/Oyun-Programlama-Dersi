@@ -11,4 +11,9 @@ public class UIController : MonoBehaviour
     {
         SceneManager.LoadScene("Level 1"); // Load the Level 1 scene
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }

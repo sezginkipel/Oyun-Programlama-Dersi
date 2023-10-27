@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -19,6 +20,11 @@ public class PlayerController : MonoBehaviour
     {
         Move();
         Animate();
+
+        if (transform.position.y <= -30)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
     
     // Control player Movement with keyboard
@@ -34,6 +40,7 @@ public class PlayerController : MonoBehaviour
     void Animate()
     {
         playerAnimator.SetBool("isRunning", playerRigidbody.velocity.z != 0);
+        playerAnimator.SetBool("isFalling", playerRigidbody.velocity.y < -10);
     }
     
     
