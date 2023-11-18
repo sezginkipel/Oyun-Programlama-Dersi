@@ -61,14 +61,18 @@ public class PlayerController : MonoBehaviour
         }
     }
     
-    void OnCollisionEnter(Collision collision) // Çarpışma gerçekleştiği zaman çalışır.
+    void OnCollisionEnter(Collision carpilanNesne) // Çarpışma gerçekleştiği zaman çalışır.
     {
-        if (collision.gameObject.CompareTag("ground")) // Çarpışan objenin tagı Ground ise...
+        if (carpilanNesne.gameObject.CompareTag("ground")) // Çarpışan objenin tagı Ground ise...
         {
             isGrounded = true; // isGrounded true olur. Yani karakter yerde. 
         }
-        
     }
+    
+    // Yukarıdaki metodla ilgili bir soru hazıla
+    // Eğer karakterimiz zıpladıktan sonra tekrar zıplamak isterse ne olur?
+
+    
 
     private void OnTriggerEnter(Collider other) // Trigger ile çarpışma gerçekleştiği zaman çalışır.
     {
