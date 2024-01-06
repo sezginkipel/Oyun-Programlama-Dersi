@@ -1,6 +1,10 @@
 # Oyun Programlama Dersi
 
 > [!NOTE]
+> Bazı oyunlar repodan kaldırıldı. Yeni oyunlar eklenecek.
+
+
+> [!NOTE]
 > Kaynaklar güncellenmiştir, faydalı Youtube kanalları eklendi.
 > [Kaynaklara Git](https://github.com/sezginkipel/Oyun-Programlama-Dersi/tree/main/Kaynaklar)
 
