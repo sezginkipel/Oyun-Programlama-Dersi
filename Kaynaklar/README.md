@@ -6,7 +6,7 @@
   
 * [freeCodeCamp](https://www.youtube.com/@freecodecamp)
 * [AlexDev](https://www.youtube.com/@unityalexdev)
-* [Brackeys](https://www.youtube.com/@Brackeys) - Artık içerik üretmiyor ancak eski içerikleri de çok faydalı. Basit ve anlaşılır bir anlatım.
+* [Brackeys](https://www.youtube.com/@Brackeys) - Artık Unity yerine Godot ile ilgili içerikle üretiyor.
 * [DapperDino](https://www.youtube.com/@DapperDinoCodingTutorials)
 * [CodeMonkey](https://www.youtube.com/@CodeMonkeyUnity)
 * [Freya Holmér](https://www.youtube.com/@Acegikmo)
