@@ -20,16 +20,15 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            _playerRigidbody.AddForce(UnityEngine.Vector2.left * _speed);
+            _playerRigidbody.AddForce(UnityEngine.Vector2.left * (_speed * Time.deltaTime));
         }else if (Input.GetKey(KeyCode.RightArrow))
         {
-            _playerRigidbody.AddForce(UnityEngine.Vector2.right * _speed);
-        }else if (Input.GetKey(KeyCode.UpArrow))
+            _playerRigidbody.AddForce(UnityEngine.Vector2.right * (_speed * Time.deltaTime));
+        }
+        
+        if (Input.GetKey(KeyCode.Space))
         {
-            _playerRigidbody.AddForce(UnityEngine.Vector2.up * _jumpForce);
-        }else if (Input.GetKey(KeyCode.DownArrow))
-        {
-            _playerRigidbody.AddForce(UnityEngine.Vector2.down * _speed);
+            _playerRigidbody.AddForce(UnityEngine.Vector2.up * (_jumpForce * Time.deltaTime));
         }
     }
 }
