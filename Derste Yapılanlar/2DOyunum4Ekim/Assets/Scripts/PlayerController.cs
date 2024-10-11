@@ -1,11 +1,16 @@
+using TMPro;
 using UnityEngine;
-using Vector2 = System.Numerics.Vector2;
 
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D _playerRigidbody;
-    public float _speed = 5.0f;
-    public float _jumpForce = 5.0f;
+    public TMP_Text scoreText;
+    
+    [SerializeField] private float _speed = 5.0f;
+    [SerializeField] private float _jumpForce = 5.0f;
+    
+    [SerializeField] private float score = 0.0f;
+    
     void Start()
     {
         _playerRigidbody = GetComponent<Rigidbody2D>();
@@ -29,6 +34,16 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.Space))
         {
             _playerRigidbody.AddForce(UnityEngine.Vector2.up * (_jumpForce * Time.deltaTime));
+        }
+    }
+    
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Coin"))
+        {
+            score++;
+            Destroy(other.gameObject);
+            scoreText.text = "Score: " + score;
         }
     }
 }
