@@ -9,9 +9,11 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D _playerRigidbody;
     public TMP_Text scoreText;
+    private Animator _playerAnimator;
     
     [SerializeField] private float _speed = 5.0f;
     [SerializeField] private float _jumpForce = 5.0f;
+    private float _currentSpeed = 0;
     
     [SerializeField] private float score = 0.0f;
     [SerializeField] private int keyCount = 0;
@@ -19,11 +21,15 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         _playerRigidbody = GetComponent<Rigidbody2D>();
+        _playerAnimator = GetComponent<Animator>();
     }
 
     void Update()
     {
         MovePlayer();
+        RotatePlayer();
+        _currentSpeed = _playerRigidbody.linearVelocity.x;
+        _playerAnimator.SetFloat("playerSpeed", _currentSpeed);
     }
 
     void MovePlayer()
@@ -39,6 +45,17 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.Space))
         {
             _playerRigidbody.AddForce(UnityEngine.Vector2.up * (_jumpForce * Time.deltaTime));
+        }
+    }
+    
+    void RotatePlayer()
+    {
+        if (_currentSpeed > 0)
+        {
+            transform.eulerAngles = new UnityEngine.Vector3(0, 0, 0);
+        }else if (_currentSpeed < 0)
+        {
+            transform.eulerAngles = new UnityEngine.Vector3(0, 180, 0);
         }
     }
     
