@@ -1,5 +1,7 @@
+using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,6 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _jumpForce = 5.0f;
     
     [SerializeField] private float score = 0.0f;
+    [SerializeField] private int keyCount = 0;
     
     void Start()
     {
@@ -44,6 +47,26 @@ public class PlayerController : MonoBehaviour
             score++;
             Destroy(other.gameObject);
             scoreText.text = "Score: " + score;
+        }
+
+        if (other.gameObject.CompareTag("Key"))
+        {
+            keyCount++;
+            Destroy(other.gameObject);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Finish"))
+        {
+            if (keyCount > 0)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }else
+            {
+                Debug.Log("Bölümü bitirmek için anahtara ihtiyacın var!");
+            }
         }
     }
 }
