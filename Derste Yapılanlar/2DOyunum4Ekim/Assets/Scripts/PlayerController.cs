@@ -3,6 +3,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// Using ile kullanacağımız namespace'leri belirtiyoruz.
+
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D _playerRigidbody;
